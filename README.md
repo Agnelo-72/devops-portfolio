@@ -43,4 +43,4 @@ Then follow that project's `README.md`.
 
 Built while studying DevOps (ISEC — Instituto Superior de Engenharia de Coimbra).
 
-[LinkedIn](https://linkedin.com/in/your-profile) · [Email](mailto:your-email@example.com)
+[LinkedIn](www.linkedin.com/in/agnelo-silva-baia) · [Email](mailto:aguinelobaia@gmail.com)
