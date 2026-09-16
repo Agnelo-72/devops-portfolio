@@ -1,6 +1,9 @@
 # DevOps Portfolio
 
-Hands-on infrastructure and automation projects, built incrementally to practice the core DevOps toolchain: containerization, Infrastructure as Code, and (soon) CI/CD.
+Hello!😊
+My name is Agnelo Silva Baia. I studied Computer Engineering at ISEC Coimbra and during my internship (25/26) I worked on automation and CI/CD for cloud-based 5G systems. Since then, I've been expanding my DevOps skills. 
+
+This repository showcases my hands-on infrastructure and automation projects, built incrementally to practice the core DevOps toolchain: containerization, Infrastructure as Code, and CI/CD.
 
 Each folder is a self-contained project with its own `README.md` covering the goal, the architecture, how to run it, and the design decisions behind it.
 
@@ -41,6 +44,6 @@ Then follow that project's `README.md`.
 
 ## About
 
-Built while studying DevOps (ISEC — Instituto Superior de Engenharia de Coimbra).
+Built while studying DevOps.
 
 [LinkedIn](www.linkedin.com/in/agnelo-silva-baia) · [Email](mailto:aguinelobaia@gmail.com)
