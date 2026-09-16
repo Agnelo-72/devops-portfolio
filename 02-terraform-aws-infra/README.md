@@ -65,10 +65,3 @@ terraform destroy
 - **Remote state on S3, encrypted.** Keeps the state out of any single machine's disk and makes the setup safe to work on from more than one workstation.
 - **IAM instance profile instead of static credentials.** The EC2 instance authenticates to ECR through an attached IAM role rather than access keys baked into the machine — the AWS-recommended pattern for workload identity.
 
-## Known improvement (next iteration)
-
-The AMI ID, VPC ID and region are currently hardcoded directly in `ec2.tf`. This works, but ties the configuration to one specific AWS account/region and was, in practice, the source of a debugging session documented in [`docs/engineering-log.pdf`](./docs/engineering-log.pdf) — an AMI/VPC ID copied from one region silently fails against a provider configured for another. The planned fix is to extract these into `variables.tf` with a `terraform.tfvars.example` file, making the module region-agnostic and safer to reuse.
-
-## Engineering log
-
-[`docs/engineering-log.pdf`](./docs/engineering-log.pdf) is a detailed, annotated write-up of this project's build process — every error hit along the way (HCL quoting rules, the region/VPC mismatch, SSH key permissions, Docker socket permissions), why it happened, and how it was fixed. Written as a study reference, but it also doubles as a record of the debugging process behind this infrastructure.
