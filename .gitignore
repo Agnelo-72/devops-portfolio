@@ -1,0 +1,33 @@
+# ---- Secrets: never commit these ----
+*.pem
+*.key
+*.ppk
+*.crt
+*credentials*
+*.env
+.env.*
+
+# ---- Terraform ----
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Keep the lock file — it should be committed for reproducible provider versions
+!.terraform.lock.hcl
+
+# ---- OS / editor noise ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Logs ----
+*.log
