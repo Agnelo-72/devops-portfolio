@@ -9,6 +9,8 @@ Each folder is a self-contained project with its own `README.md` covering the go
 
 ## Projects
 
+![Architecture overview](./images/architecture.png)
+
 | # | Project | Focus | Stack |
 |---|---|---|---|
 | 01 | [Dockerized Static Website](./01-docker-static-website) | Containerizing a static site behind Nginx | Docker, Nginx |
