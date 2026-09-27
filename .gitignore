@@ -31,3 +31,4 @@ Thumbs.db
 
 # ---- Logs ----
 *.log
+03-cicd-pipeline/infra-as-code/
