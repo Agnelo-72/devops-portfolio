@@ -15,7 +15,7 @@ Each folder is a self-contained project with its own `README.md` covering the go
 |---|---|---|---|
 | 01 | [Dockerized Static Website](./01-docker-static-website) | Containerizing a static site behind Nginx | Docker, Nginx |
 | 02 | [Terraform AWS Infrastructure](./02-terraform-aws-infra) | Provisioning EC2, Security Groups and ECR with Terraform, remote state on S3 | Terraform, AWS (EC2, ECR, S3, IAM), Docker |
-| 03 | CI/CD Pipeline (./03-cicd-pipeline) | Automated build → push to ECR → deploy to EC2 | GitHub Actions |
+| 03 | [CI/CD Pipeline](./03-cicd-pipeline) | Automated build → push to ECR → deploy to EC2 | GitHub Actions |
 
 ## Why this repo exists
 
