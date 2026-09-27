@@ -1,4 +1,4 @@
-# CI/CD Pipeline for Terraform (GitHub Actions + OIDC)
+# CI/CD Pipeline for Terraform (GitHub Actions + OIDC + AWS)
 
 Runs `terraform plan`/`apply` for [`02-terraform-aws-infra`](../02-terraform-aws-infra) from GitHub Actions, triggered manually, with no AWS keys stored anywhere — authentication is via OIDC.
 
