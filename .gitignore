@@ -1,4 +1,4 @@
-# ---- Secrets: never commit these ----
+# ---- Secrets ----
 *.pem
 *.key
 *.ppk
@@ -31,6 +31,4 @@ Thumbs.db
 
 # ---- Logs ----
 *.log
-03-cicd-pipeline/infra-as-code/
-04-automation-site-deploy/application-repository/
-04-automation-site-deploy/infra-as-code/
+
