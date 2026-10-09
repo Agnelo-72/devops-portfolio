@@ -8,5 +8,11 @@ terraform {
   }
 }
 
-#serve para configurar o backend do Terraform para armazenar o estado da infraestrutura (tfstate) em um bucket S3 na AWS. 
-#O bloco "backend" especifica o tipo de backend (neste caso, "s3") onde o estado será armazenado.
+
+
+
+
+
+
+#serve para configurar o backend do Terraform para armazenar 
+#o estado da infraestrutura (tfstate) em um bucket S3 na AWS. 

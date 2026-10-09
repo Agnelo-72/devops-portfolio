@@ -36,7 +36,7 @@ resource "aws_security_group" "website_sh" {
 resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
   security_group_id = aws_security_group.website_sh.id
 
-  cidr_ipv4   = "188.82.120.251/32"          #IP do meu computador
+  cidr_ipv4   = "my-ip"          #IP do meu computador (in aws)
   from_port   = 22
   ip_protocol = "tcp"
   to_port     = 22
@@ -46,7 +46,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
 resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   security_group_id = aws_security_group.website_sh.id
 
-  cidr_ipv4   = "0.0.0.0/0"           #Permitir tráfego HTTP de qualquer lugar
+  cidr_ipv4   = "0.0.0.0/0"           #ALERT! está a permitir tráfego HTTP de qualquer lugar (Não é recomendado em produção
   from_port   = 80
   ip_protocol = "tcp"
   to_port     = 80
