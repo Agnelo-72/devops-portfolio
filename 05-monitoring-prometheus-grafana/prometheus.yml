@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s      
+
+scrape_configs: 
+  - job_name: 'ec2-node-exporter'
+    static_configs:
+      - targets: ['54.87.212.180:9100']
+
+  - job_name: 'nginx-app'
+    static_configs:
+      - targets: ['54.87.212.180:9113']
