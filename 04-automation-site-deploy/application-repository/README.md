@@ -8,7 +8,7 @@ This is the piece that closes the loop: [`infra-as-code`](https://github.com/Agn
 
 
 
-## What it does?
+## What it does??
 
 ```text
 Push to main
