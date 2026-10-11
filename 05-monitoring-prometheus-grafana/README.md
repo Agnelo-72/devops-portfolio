@@ -138,6 +138,54 @@ docker ps
 5. Enter ID **`1860`** (*Node Exporter Full*) or upload `./dashboards/node-exporter.json`.
 6. Select your Prometheus data source and click **Import**.
 
+
+
+## Alerting
+
+One alert rule, in `alert.rules.yml`: if Prometheus can't scrape the exporter for 2 minutes in a row, the alert fires.
+
+```yaml
+- alert: EC2InstanceDown
+  expr: up == 0
+  for: 2m
+  labels:
+    severity: critical
+  annotations:
+    summary: "EC2 instance is down"
+```
+
+`up` is a metric Prometheus creates by itself for every target: 1 when the last scrape worked, 0 when it didn't. The `for: 2m` stops a single failed scrape from raising a false alarm. The file is mounted into the Prometheus container and loaded through `rule_files` in `prometheus.yml`.
+
+### Testing it
+
+To see it work I stopped the exporter on the instance (`docker stop node-exporter`) and watched the alert go through its states.
+
+**Inactive.** The rule is loaded and the condition isn't true.
+
+![Rule loaded, inactive](./images/prometheus-ec2AlertRules.jpeg)
+
+**Pending.** The condition is true and Prometheus is waiting out the 2 minutes.
+
+![Alert pending](./images/prometheus-ec2AlertRules-pending.jpeg)
+
+**Firing.** After 2 minutes the alert fires.
+
+![Alert firing](./images/prometheus-ec2AlertRules-firing.jpeg)
+
+The Targets page shows the reason: `connection refused`.
+
+![Target down](./images/prometheus-nodeExport-down.jpeg)
+
+Grafana lists the same rule under Alert rules, because it reads the rules from the Prometheus data source. It's the same alert, not a second one.
+
+![Alert in Grafana](./images/grafana-dashboard-ec2AlertRules-firing.png)
+
+### What this alert can't tell me
+
+The name says "instance down", but what it really detects is the exporter not answering. In the test the instance was fine and the site container kept running the whole time (`docker ps` still showed it up). `connection refused` also means the machine answered and nothing was listening on port 9100. If the instance were unreachable, it would be a timeout instead. Knowing that the site itself stopped responding needs a check against the site, which is a next step.
+
+There are no notifications either: the alert only shows on the Prometheus and Grafana pages. Sending it to email or Discord needs Alertmanager.
+
 ---
 
 ## Metrics Tracked (USE Method)

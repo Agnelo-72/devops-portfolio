@@ -1,7 +1,15 @@
 global:
   scrape_interval: 15s
 
+# Alerting configuration
+rule_files:
+  - "alert.rules.yml"
+
+
 scrape_configs:
   - job_name: 'ec2-node-exporter'
     static_configs:
       - targets: ['54.87.212.180:9100']
+
+
+

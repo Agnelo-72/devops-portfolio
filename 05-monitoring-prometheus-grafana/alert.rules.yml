@@ -1,0 +1,10 @@
+groups:
+  - name: ec2
+    rules:
+      - alert: EC2InstanceDown
+        expr: up == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "EC2 instance is down"
