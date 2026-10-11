@@ -131,7 +131,7 @@ docker ps
 2. Confirm that the `ec2-node-exporter` target (`54.87.212.180:9100`) displays status **UP** in green.
 
 ### Step 4: Configure Grafana & Dashboard
-1. Open Grafana at `http://localhost:3000` (Credentials: `admin` / `admin`).
+1. Open Grafana at `http://localhost:3000` (Credentials: `user: ...` / `pass: saved in .env file`).
 2. Navigate to **Connections > Data Sources > Add data source** and select **Prometheus**.
 3. Set the **Prometheus server URL** to `http://prometheus:9090` and click **Save & test**.
 4. Go to **Dashboards > New > Import**.
@@ -144,3 +144,4 @@ docker ps
 - **Utilization:** CPU usage, memory saturation, filesystem space usage.
 - **Saturation:** Load average, IOPS queues.
 - **Errors:** Network interface packet errors and drops.
+
