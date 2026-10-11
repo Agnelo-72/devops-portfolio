@@ -73,3 +73,13 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_outbound" {
   ip_protocol = -1          #Permitir todos os protocolos
 }
 
+
+# Allow Prometheus Metrics from my computer IP (temporarily disabled for security)
+# resource "aws_vpc_security_group_ingress_rule" "allow_node_exporter" {
+#   security_group_id = aws_security_group.website_sh.id
+#
+#   cidr_ipv4   = "0.0.0.0/0"              # Alert! Deveria ser apenas o IP do meu computador; foi aberto para qualquer lugar por enquanto, mas não é seguro.
+#   from_port   = 9100
+#   ip_protocol = "tcp"
+#   to_port    = 9100
+# }

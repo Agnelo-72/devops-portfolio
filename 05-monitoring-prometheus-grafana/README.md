@@ -35,6 +35,7 @@ To maintain a zero-cost infrastructure under the **AWS Free Tier** (1x `t3.micro
 ├── prometheus.yml
 ├── dashboards/
 │   └── node-exporter.json
+├── images
 └── README.md
 ```
 
@@ -52,7 +53,7 @@ services:
     container_name: prometheus
     restart: unless-stopped
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
@@ -62,9 +63,9 @@ services:
     container_name: grafana
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
     volumes:
       - grafana_data:/var/lib/grafana
 
@@ -98,7 +99,7 @@ Ensure your Terraform security group grants ingress access to port `9100` restri
 resource "aws_vpc_security_group_ingress_rule" "allow_node_exporter" {
   security_group_id = aws_security_group.website_sh.id
 
-  cidr_ipv4   = "188.82.120.251/32" # Management Public IP
+  cidr_ipv4   = "my-ip" # Management Public IP
   from_port   = 9100
   ip_protocol = "tcp"
   to_port     = 9100
